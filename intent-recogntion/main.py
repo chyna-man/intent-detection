@@ -3,9 +3,7 @@ import sys
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 import uvicorn
-sys.path.append(os.path.join(os.path.dirname(__file__), "intent-recognition", "src"))
-
-from predict_intent import predict_intent
+from src.predict_intent import predict_intent
 
 app = FastAPI()
 
