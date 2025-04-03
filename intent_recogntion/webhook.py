@@ -42,15 +42,24 @@ def webhook():
     req = request.get_json()
     user_input = req["queryResult"]["queryText"]
 
-    # Vectorize and predict
+    # DEBUG print to see if request came in
+    print("Dialogflow said:", user_input)
+    print("Full request from Dialogflow:")
+    print(req)
+    
+    # Vectorize using BERT
     vector = get_cls_embedding(user_input)
     prediction = model.predict([vector])[0]
     intent = label_encoder.inverse_transform([prediction])[0]
 
-    # Respond to Dialogflow
+    # Respond back to Dialogflow
     return jsonify({
         "fulfillmentText": f"Predicted intent: {intent}"
     })
+
+@app.route("/webhook", methods=["GET"])
+def webhook_get():
+    return jsonify({"message": "Webhook is up and running!"})
 
 if __name__ == "__main__":
     app.run(port=5000)
