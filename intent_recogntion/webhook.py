@@ -5,6 +5,7 @@ import numpy as np
 import pickle
 import os
 
+
 # Init Flask
 app = Flask(__name__)
 
