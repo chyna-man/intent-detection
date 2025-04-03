@@ -42,6 +42,6 @@ def predict_intent(text):
 
 # Example usage
 if __name__ == "__main__":
-    example = "Find me a hotel in London"
+    example = "reservation for 5-star hotel in Edwardview"
     prediction = predict_intent(example)
     print(f"Predicted Intent: {prediction}")

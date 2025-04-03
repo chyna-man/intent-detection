@@ -14,7 +14,7 @@ import seaborn as sns
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load data
-data_path = "C:/Users/Jason/Documents/GitHub/intent-recognition/train.csv"
+data_path = "datasets/train.csv"
 df = pd.read_csv(data_path) # Change if using valid/test separately
 texts = df['text'].tolist()
 labels = df['label'].tolist()
